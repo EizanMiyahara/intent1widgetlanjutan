@@ -14,7 +14,17 @@ public class HasilAcivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hasil_acivity);
 
+        setTitle("Hasil");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        String nama = getIntent().getStringExtra(MainActivity.NAMA);
+        int umur = getIntent().getIntExtra(MainActivity.UMUR,0);
+
+        int yearNow = Calendar.getInstance().get(Calendar.YEAR);
+        int tahunLahir = yearNow - umur;
+
+        TextView tvHasil = (TextView) findViewById(R.id.textViewHasil);
+        tvHasil.setText(nama +" lahir pada tahun" + tahunLahir);
 
 
 
